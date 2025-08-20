@@ -31,10 +31,12 @@ bool get_contact(Contact& contact) {
 		|| !safe_input("Write Last Name", last_name, isalpha)
 		|| !safe_input("Write Nickname", nickname, isalnum)
 		|| !safe_input("Write Phone Number", phone_number, isdigit)
-		|| !safe_input("Write Darkest Secret", darkest_secret, secret_checker))
-		return false;
-	
+		|| !safe_input("Write Darkest Secret", darkest_secret, secret_checker)) {
+			std::cout << "Invalid Input!" << std::endl;
+			return false;
+		}
 	contact = Contact(first_name, last_name, nickname, phone_number, darkest_secret);
+	std::cout << std::endl << "Contact added successfully." << std::endl << std::endl;
 	return true;
 }
 
@@ -42,6 +44,7 @@ int main() {
 	PhoneBook phonebook;
 	std::string input;
 
+	std::cout << "Available commands: ADD, SEARCH, EXIT" << std::endl;
 	while (true)
 	{
 		std::cout << "Input command: ";
@@ -60,7 +63,7 @@ int main() {
 		else if (input == "EXIT")
 			break;
 		else
-			std::cout << "Miqo?" << std::endl;
+			std::cout << "Invalid command!" << std::endl;
 	}
 	return 0;
 }

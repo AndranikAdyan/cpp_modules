@@ -16,9 +16,9 @@ Contact::Contact(const std::string first_name, const std::string last_name,
 
 void Contact::display_summery() const {
 	std::cout << std::right;
-	std::cout << std::setw(10) << first_name << "|";
-	std::cout << std::setw(10) << last_name << "|";
-	std::cout << std::setw(10) << nickname << "|" << std::endl;
+	first_name.length() > 10 ? std::cout << first_name.substr(0, 9) << ".|" : std::cout << std::setw(10) << first_name << "|";
+	last_name.length() > 10 ? std::cout << last_name.substr(0, 9) << ".|" : std::cout << std::setw(10) << last_name << "|";
+	nickname.length() > 10 ? std::cout << nickname.substr(0, 9) << ".|" : std::cout << std::setw(10) << nickname << "|" << std::endl;
 	std::cout.flags(std::ios::fmtflags(0));
 }
 

@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <string>
+# include <sstream>
 # include "Contact.hpp"
 
 bool get_contact(Contact& contact);
