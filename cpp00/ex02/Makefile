@@ -1,6 +1,6 @@
 NAME = account
 
-SRC = Account.cpp Account.hpp tests.cpp
+SRC = Account.cpp tests.cpp
 BUILD_DIR = ./.build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)
 
