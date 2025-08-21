@@ -1,4 +1,5 @@
-#pragma once
+#ifndef PHONEBOOK_HPP
+# define PHONEBOOK_HPP
 
 # include <iostream>
 # include <string>
@@ -17,3 +18,5 @@ class PhoneBook {
 		Contact contacts[8];
 		int contacts_count;
 };
+
+#endif
