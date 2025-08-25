@@ -1,6 +1,11 @@
 *.o
 .build
 .vscode
+
+# cpp00
 megaphone
 phonebook
 account
+
+# cpp01
+zombie
