@@ -1,4 +1,4 @@
-NAME = ex02
+NAME = hi_brain
 
 SRC = main.cpp
 BUILD_DIR = ./.build
