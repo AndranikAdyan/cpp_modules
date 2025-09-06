@@ -1,4 +1,4 @@
-NAME = zombie
+NAME = fixed
 
 SRC = main.cpp Fixed.cpp
 BUILD_DIR = ./.build
