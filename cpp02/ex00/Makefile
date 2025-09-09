@@ -5,7 +5,7 @@ BUILD_DIR = ./.build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: build $(NAME)
 
