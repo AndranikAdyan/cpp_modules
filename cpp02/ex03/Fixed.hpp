@@ -21,7 +21,6 @@ class Fixed
 		void setRawBits(int const raw);
 
 		Fixed& operator=(const Fixed& other);
-		friend std::ostream& operator<<(std::ostream& out, const Fixed& obj);
 		Fixed operator+(const Fixed& other) const;
 		Fixed operator-(const Fixed& other) const;
 		Fixed operator*(const Fixed& other) const;
@@ -43,5 +42,7 @@ class Fixed
 		static Fixed& max(Fixed& a, Fixed& b);
 		static const Fixed& max(const Fixed& a, const Fixed& b);
 };
+
+std::ostream& operator<<(std::ostream& out, const Fixed& obj);
 
 #endif

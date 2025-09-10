@@ -21,10 +21,12 @@ class Fixed
 		void setRawBits(int const raw);
 
 		Fixed& operator=(const Fixed& other);
-		friend std::ostream& operator<<(std::ostream& out, const Fixed& obj);
 
 		float toFloat() const;
 		int toInt() const;
 };
+
+std::ostream& operator<<(std::ostream& out, const Fixed& obj);
+
 
 #endif
