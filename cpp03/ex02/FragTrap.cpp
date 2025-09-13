@@ -28,7 +28,7 @@ FragTrap::~FragTrap() {
 
 FragTrap& FragTrap::operator=(const FragTrap& other) {
 	ClapTrap::operator=(other);
-	std::cout << "ScavTrap " << this->_name
+	std::cout << "FragTrap " << this->_name
 				<< " has been assigned from " << other._name
 				<< " (copy assignment operator called)" << std::endl;
 	return *this;
@@ -36,12 +36,12 @@ FragTrap& FragTrap::operator=(const FragTrap& other) {
 
 void FragTrap::attack(const std::string& target) {
 	if (this->_hp <= 0) {
-		std::cout << "ScavTrap " << this->_name
+		std::cout << "FragTrap " << this->_name
 					<< " has no hit points left and cannot attack!" << std::endl;
 		return;
 	}
 	if (this->_energy <= 0) {
-		std::cout << "ScavTrap " << this->_name
+		std::cout << "FragTrap " << this->_name
 					<< " has no energy points left and cannot attack!" << std::endl;
 		return;
 	}
