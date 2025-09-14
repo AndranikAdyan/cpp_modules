@@ -1,7 +1,6 @@
 #include "DiamondTrap.hpp"
 #include <iostream>
 
-
 DiamondTrap::DiamondTrap() : ClapTrap("DiamondUnknown_clap_name"),
 							ScavTrap("DiamondUnknown"),
 							FragTrap("DiamondUnknown"),
@@ -33,6 +32,9 @@ DiamondTrap::DiamondTrap(const DiamondTrap& other) : ClapTrap(other),
 	std::cout << "DiamondTrap " << this->name << " was copied!" << std::endl;
 }
 
+DiamondTrap::~DiamondTrap() {
+	std::cout << "DiamondTrap " << this->_name << " was destroyed!" << std::endl;
+}
 
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other)
 {
