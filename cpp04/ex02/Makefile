@@ -1,11 +1,11 @@
 NAME = animals
 
-SRC = Animal.cpp Cat.cpp Dog.cpp main.cpp
+SRC = Animal.cpp Cat.cpp Dog.cpp main.cpp WrongAnimal.cpp WrongCat.cpp Brain.cpp
 BUILD_DIR = ./.build
 OBJ = $(SRC:%.cpp=$(BUILD_DIR)/%.o)
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g3
 
 all: build $(NAME)
 

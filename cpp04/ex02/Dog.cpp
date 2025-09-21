@@ -3,10 +3,12 @@
 
 Dog::Dog() {
 	this->type = "Dog";
+	this->brain = new Brain;
 	std::cout << "Dog constructor called" << std::endl;
 }
 
 Dog::~Dog() {
+	delete this->brain;	
 	std::cout << "Dog destructor called" << std::endl;
 }
 
