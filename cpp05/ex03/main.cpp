@@ -2,6 +2,7 @@
 #include "Intern.hpp"
 #include <cstdlib>
 #include <ctime>
+#include <iostream>
 
 int main() {
 	srand(time(NULL));
@@ -9,40 +10,55 @@ int main() {
 	Bureaucrat low("LowRank", 150);
 	Bureaucrat mid("MidRank", 100);
 	Bureaucrat high("HighRank", 1);
-
 	Intern intern;
 
-	AForm* shrub = intern.makeForm("shrubbery creation", "Home");
-	AForm* robo = intern.makeForm("robotomy request", "Marvin");
-	AForm* pardon = intern.makeForm("presidential pardon", "Arthur");
+	std::string formNames[3] = {
+		"asdf",
+		"robotomy request",
+		"presidential pardon"
+	};
+	std::string targets[3] = {
+		"Home",
+		"Marvin",
+		"Arthur"
+	};
 
-	std::cout << *shrub << std::endl;
-	std::cout << *robo << std::endl;
-	std::cout << *pardon << std::endl;
-
-	low.signForm(*shrub);
-	mid.signForm(*shrub);
-	high.signForm(*robo);
-	high.signForm(*pardon);
-
-	Bureaucrat executors[] = { low, mid, high };
-	AForm* forms[] = { shrub, robo, pardon };
+	AForm* form = NULL;
 
 	for (int i = 0; i < 3; ++i) {
-		for (int j = 0; j < 3; ++j) {
-			try {
-				executors[i].executeForm(*forms[j]);
-			} catch (std::exception &e) {
-				std::cout << executors[i].getName() << " couldn't execute " 
-						  << forms[j]->getName() << " because " 
-						  << e.what() << std::endl;
-			}
-		}
-	}
+		try {
+			form = intern.makeForm(formNames[i], targets[i]);
+			std::cout << *form << std::endl;
 
-	delete shrub;
-	delete robo;
-	delete pardon;
+			if (i == 0)
+				mid.signForm(*form);
+			else if (i == 1)
+				high.signForm(*form);
+			else
+				high.signForm(*form);
+
+			Bureaucrat* executors[3] = { &low, &mid, &high };
+			for (int j = 0; j < 3; ++j) {
+				try {
+					executors[j]->executeForm(*form);
+				} catch (std::exception &e) {
+					std::cout << executors[j]->getName()
+							  << " couldn't execute "
+							  << form->getName()
+							  << " because "
+							  << e.what() << std::endl;
+				}
+			}
+
+			delete form;
+			form = NULL;
+		} catch (std::exception &e) {
+			std::cout << "Intern failed to create form '" 
+					  << formNames[i] << "' because " 
+					  << e.what() << std::endl;
+		}
+		std::cout << "-------------------------------------\n";
+	}
 
 	return 0;
 }

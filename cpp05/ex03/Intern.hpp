@@ -11,6 +11,11 @@ public:
 	Intern &operator=(const Intern &other);
 	~Intern();
 
+	class InternNotFound : public std::exception {
+		public:
+			virtual const char* what() const throw();
+	};
+
 	AForm* makeForm(const std::string &formName, const std::string &target);
 };
 

@@ -10,6 +10,10 @@ Intern::Intern(const Intern&) {}
 Intern& Intern::operator=(const Intern&) { return *this; }
 Intern::~Intern() {}
 
+const char* Intern::InternNotFound::what() const throw() {
+	return "Intern not found";
+}
+
 AForm* Intern::makeForm(const std::string &formName, const std::string &target) {
 	if (formName == "shrubbery creation") {
 		std::cout << "Intern creates " << formName << std::endl;
@@ -23,6 +27,6 @@ AForm* Intern::makeForm(const std::string &formName, const std::string &target) 
 		std::cout << "Intern creates " << formName << std::endl;
 		return new PresidentialPardonForm(target);
 	}
-	std::cout << "Intern couldn't create form: " << formName << std::endl;
+	throw InternNotFound();
 	return NULL;
 }
