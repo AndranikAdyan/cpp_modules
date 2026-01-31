@@ -1,13 +1,16 @@
-#include <iostream>
+#ifndef SCALARCONVERTER_HPP
+# define SCALARCONVERTER_HPP
 
-class ScalarConverter
-{
+# include <string>
+
+class ScalarConverter {
+	public:
+		static void	convert(const std::string&);
 	private:
 		ScalarConverter();
-		ScalarConverter(const ScalarConverter& other);
-		const ScalarConverter& operator=(const ScalarConverter& other);
 		~ScalarConverter();
-
-	public:
-		static void converter(const std::string& literal);
+		ScalarConverter(const ScalarConverter&);
+		ScalarConverter&	operator=(const ScalarConverter&);
 };
+
+#endif
