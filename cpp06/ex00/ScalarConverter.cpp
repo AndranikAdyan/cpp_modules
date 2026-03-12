@@ -86,10 +86,10 @@ static void	printAllTypes(double value, int precision) {
 		std::cout << "impossible\n";
 	std::cout << "float: ";
 	if (isInFloatRange)
-		std::cout << std::fixed << std::setprecision(precision)<< static_cast<float>(value) << "f\n";
+		std::cout << std::fixed << std::setprecision(precision) << static_cast<float>(value) << "f\n";
 	else
 		std::cout << "impossible\n";
-	std::cout << "double: " /*<< std::fixed << std::setprecision(precision)*/ << value << "\n";
+	std::cout << "double: " << value << "\n";
 }
 
 static int	getPrecisionNumber(const std::string& input) {
